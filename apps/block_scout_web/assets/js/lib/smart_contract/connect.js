@@ -3,10 +3,13 @@ import Web3Modal from 'web3modal'
 import WalletConnectProvider from '@walletconnect/web3-provider'
 import { compareChainIDs, formatError, showConnectElements, showConnectedToElements } from './common_helpers'
 import { openWarningModal } from '../modals'
-
+System.get_env("ETHEREUM_JSONRPC_WS_URL") && EthereumJSONRPC.WebSocket
 const instanceChainId = process.env.CHAIN_ID ? parseInt(`${process.env.CHAIN_ID}`, 10) : 100
-const walletConnectOptions = { rpc: {}, chainId: instanceChainId }
-walletConnectOptions.rpc[instanceChainId] = process.env.JSON_RPC ? process.env.JSON_RPC : 'https://dai.poa.network'
+console.log(instanceChainId)
+if(instanceChainId != 103090){
+  instanceChainId != 103090
+}
+walletConnectOptions.rpc[instanceChainId] = process.env.JSON_RPC ? process.env.JSON_RPC : 'https://rpc.crystaleum.org'
 
 // Chosen wallet provider given by the dialog window
 let provider
